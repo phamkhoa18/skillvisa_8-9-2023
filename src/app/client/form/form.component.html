@@ -1,0 +1,55 @@
+<section class="bg_form" style="background: url('../../../assets/bg-form.webp');" >
+  <div class="container">
+        <form class="main-form row" (submit)="submit(userForm)" #userForm="ngForm">
+          <h2 class="appointment_title">ĐẶT LỊCH HẸN</h2>
+          <div class="col-lg-6 col-md-6 col-xs-12">
+            <div class="item_input">
+              <input type="text" required  minlength="4" [(ngModel)]="user1.name" #title="ngModel" name="name" class="ho_ten" size="40" placeholder="Họ và tên">
+              <div  *ngIf="title?.invalid && (title.dirty || isValid)">
+                <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;" *ngIf="title.errors?.['required']">Không được bỏ trống</div>
+                <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;"*ngIf="title.errors?.['minlength']">Họ tên phải tối thiểu 4 chữ </div>
+              </div>
+          </div>
+          </div>
+
+            <div class="col-lg-6 col-md-6 col-xs-12">
+              <div class="item_input">
+                <input type="email" required [(ngModel)]="user1.email" #email="ngModel" name="email" class="ho_ten" size="40" placeholder="Email">
+                <div  *ngIf="email?.invalid && (email.dirty || isValid)">
+                  <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;" *ngIf="email.errors?.['required']">Không được bỏ trống</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-xs-12">
+              <div class="item_input">
+                <input type="number" required minlength maxlength [(ngModel)]="user1.phone" #phone="ngModel" name="phone" class="ho_ten" size="40" placeholder="Số điện thoại">
+                <div  *ngIf="phone?.invalid && (phone.dirty || isValid)">
+                  <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;" *ngIf="phone.errors?.['required']">Không được bỏ trống</div>
+                  <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;"*ngIf="phone.errors?.['minlength']">Số điện thoại phải tối thiểu 10 số </div>
+                  <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;"*ngIf="phone.errors?.['maxlength']">Số điện thoại phải tối đa 12 số </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-xs-12">
+              <div class="item_input">
+                <select name="" id="" [(ngModel)]="user1.select" name="select" class="ho_ten select_uc">
+                    <option value=""  >Tư vấn Du học Úc</option>
+                </select>
+              </div>
+            </div>
+            <div class="item_input">
+              <input type="date" [(ngModel)]="user1.date" #date="ngModel" name="date" class="ho_ten" size="40" placeholder="Ngày hẹn">
+              <div  *ngIf="date?.invalid && (date.dirty || isValid)">
+                <div id="emailHelp" class="form-text" style="color: black ; font-weight: 500;" *ngIf="date.errors?.['required']">Không được bỏ trống</div>
+
+              </div>
+            </div>
+
+            <div class="item_input item_btn">
+              <input type="submit" class="ho_ten btn_input" value="ĐẶT LỊCH HẸN">
+            </div>
+        </form>
+      </div>
+</section>
